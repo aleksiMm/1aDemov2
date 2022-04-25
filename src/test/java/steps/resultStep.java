@@ -17,10 +17,12 @@ public class resultStep {
     public void addToCart() {
         rp.groza();
     }
+
     @And("^Go to cart$")
     public void goToCart() {
         rp.checkOut();
     }
+
     @And("^Press buy$")
     public void pressBuy() {
         rp.confirmCo();

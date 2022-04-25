@@ -6,7 +6,6 @@ import pages.orderPage;
 
 public class orderSteps {
 
-
     orderPage op = new orderPage();
 
     @When("^Enter (asdfrths@mmail.com|all) and continue$")
@@ -14,8 +13,8 @@ public class orderSteps {
         op.guest();
     }
 
-    @And("^Choose delivery method$")
-    public void chooseDeliveryMethod() {
+    @And("^Choose pickup in store$")
+    public void choosePickupInStore() {
         op.pickUp();
     }
 
@@ -23,8 +22,9 @@ public class orderSteps {
     public void validatePrice() {
         op.assure();
     }
-    @And("^Fill customer (.*)(.*)(.*)$")
-    public void fillCustomerNameSurnameAndPhone(String name, String surname, String phone) {
+
+    @And("^Put (Alek|all) (Smith|all) and (23123456|all)$")
+    public void putAlekSmithAndPhoneNumber(String name, String surname, String phone) {
         op.cmrData();
     }
 }

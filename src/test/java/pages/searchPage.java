@@ -9,18 +9,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class searchPage {
-    By mekletB = By.xpath("//input[@class='sn-suggest-input autocomplete main-search-input']");
+    private final By searchWhat = By.xpath("//input[@class='sn-suggest-input autocomplete main-search-input']");
+    private final By mekletB = By.xpath("//button[@class = 'main-search-submit']");
+    private final By filter = byText("MSI korpusi");
+    private final By main = byXpath("//img[@alt = 'Korpusi']");
 
     public void searchProduct() {
-        $(mekletB).sendKeys("MSI");
-        String searchingFor = $(mekletB).getAttribute("value");
+        $(searchWhat).sendKeys("MSI");
+        String searchingFor = $(searchWhat).getAttribute("value");
         assertThat(searchingFor).isEqualTo("MSI");
-        $(By.xpath("//button[@class = 'main-search-submit']")).click();
+        $(mekletB).click();
     }
+
     public void filterCat() {
-        By filter = byText("MSI korpusi");
         $(filter).hover().click();
-        By main = byXpath("//img[@alt = 'Korpusi']");
         $(main).hover().click();
     }
 

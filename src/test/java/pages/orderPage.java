@@ -12,18 +12,19 @@ public class orderPage {
     shoppingCart cart = new shoppingCart();
 
     private final By emailGuest = By.xpath("//form[@id = 'new_user_guest']//input[@type= 'email']");
+    private final By guestCheckout = By.xpath("//form[@id = 'new_user_guest']//input[@type= 'submit']");
     private final By finalPrice = By.xpath("//span[@class = 'checkout-order-summary-total__price']");
     private final By name = By.xpath("//input[@id = 'address_first_name']");
     private final By surname = By.xpath("//input[@id = 'address_last_name']");
-    private final By phone =  By.xpath("//input[@id = 'address_phone_number']");
+    private final By phone = By.xpath("//input[@id = 'address_phone_number']");
     private final By deliveryOption = By.xpath("//input[@value = '2']");
+    private final By jelgava = By.xpath("//input[@value = '3207']");
 
     public void guest() {
         $(emailGuest).sendKeys(user.getEmail());
         String checkMail = $(emailGuest).getAttribute("value");
         assertThat(checkMail).isEqualTo("asdfrths@mmail.com");
-        $(By.xpath("//form[@id = 'new_user_guest']//input[@type= 'submit']")).click();
-
+        $(guestCheckout).click();
     }
 
     public void pickUp() {
@@ -36,7 +37,7 @@ public class orderPage {
     }
 
     public void cmrData() {
-        $(By.xpath("//input[@value = '3207']")).click();
+        $(jelgava).click();
         $(name).sendKeys(user.getFirstName());
         $(surname).sendKeys(user.getLastName());
         $(phone).sendKeys(user.getPhone());
