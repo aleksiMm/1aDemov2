@@ -2,29 +2,29 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import pages.orderPage;
+import pages.OrderPage;
 
-public class orderSteps {
+public class OrderSteps {
 
-    orderPage op = new orderPage();
+    OrderPage orderPage = new OrderPage();
 
     @When("^Enter (asdfrths@mmail.com|all) and continue$")
     public void enterEmailAndContinue(String email) {
-        op.guest();
+        orderPage.guest();
     }
 
     @And("^Choose pickup in store$")
     public void choosePickupInStore() {
-        op.pickUp();
+        orderPage.pickUp();
     }
 
     @And("^Validate price$")
     public void validatePrice() {
-        op.assure();
+        orderPage.assure();
     }
 
     @And("^Put (Alek|all) (Smith|all) and (23123456|all)$")
     public void putAlekSmithAndPhoneNumber(String name, String surname, String phone) {
-        op.cmrData();
+        orderPage.cmrData();
     }
 }

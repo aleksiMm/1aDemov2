@@ -1,15 +1,15 @@
 package pages;
 
-import model.customerData;
-import model.shoppingCart;
+import model.CustomerData;
+import model.ShoppingCart;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class orderPage {
-    customerData user = new customerData();
-    shoppingCart cart = new shoppingCart();
+public class OrderPage {
+    CustomerData customerData = new CustomerData();
+    ShoppingCart shoppingCart = new ShoppingCart();
 
     private final By emailGuest = By.xpath("//form[@id = 'new_user_guest']//input[@type= 'email']");
     private final By guestCheckout = By.xpath("//form[@id = 'new_user_guest']//input[@type= 'submit']");
@@ -21,7 +21,7 @@ public class orderPage {
     private final By jelgava = By.xpath("//input[@value = '3207']");
 
     public void guest() {
-        $(emailGuest).sendKeys(user.getEmail());
+        $(emailGuest).sendKeys(customerData.getEmail());
         String checkMail = $(emailGuest).getAttribute("value");
         assertThat(checkMail).isEqualTo("asdfrths@mmail.com");
         $(guestCheckout).click();
@@ -33,14 +33,14 @@ public class orderPage {
 
     public void assure() {
         String priceCheck = $(finalPrice).getAttribute("value");
-        assertThat(priceCheck).isEqualTo(cart.getPrice());
+        assertThat(priceCheck).isEqualTo(shoppingCart.getPrice());
     }
 
     public void cmrData() {
         $(jelgava).click();
-        $(name).sendKeys(user.getFirstName());
-        $(surname).sendKeys(user.getLastName());
-        $(phone).sendKeys(user.getPhone());
+        $(name).sendKeys(customerData.getFirstName());
+        $(surname).sendKeys(customerData.getLastName());
+        $(phone).sendKeys(customerData.getPhone());
 
     }
 

@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class backgroundStep {
+public class BackgroundStep {
+
+    By cookies = By.xpath("//a[@class = 'c-button-inverse']");
     @Given("^Open eshop$")
     public void openEshop() {
         open("https://www.1a.lv/");
@@ -19,7 +21,7 @@ public class backgroundStep {
 
     @Then("^Accept necessary cookies$")
     public void acceptNecessaryCookies() {
-        $(By.xpath("//a[@class = 'c-button-inverse']")).click();
+        $(cookies).click();
 
     }
 }

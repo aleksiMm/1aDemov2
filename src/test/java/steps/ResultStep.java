@@ -2,30 +2,30 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import pages.resultPage;
+import pages.ResultPage;
 
-public class resultStep {
+public class ResultStep {
 
-    resultPage rp = new resultPage();
+    ResultPage resultPage = new ResultPage();
 
     @Then("^Select product$")
     public void selectProduct() {
-        rp.product();
+        resultPage.product();
     }
 
     @And("^Add to cart$")
     public void addToCart() {
-        rp.groza();
+        resultPage.groza();
     }
 
     @And("^Go to cart$")
     public void goToCart() {
-        rp.checkOut();
+        resultPage.checkOut();
     }
 
     @And("^Press buy$")
     public void pressBuy() {
-        rp.confirmCo();
+        resultPage.confirmCo();
     }
 }
 

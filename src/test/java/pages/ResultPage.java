@@ -1,13 +1,13 @@
 package pages;
 
-import model.shoppingCart;
+import model.ShoppingCart;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class resultPage {
+public class ResultPage {
 
-    shoppingCart cart = new shoppingCart();
+    ShoppingCart shoppingCart = new ShoppingCart();
 
     private final By veloxAirflow = By.xpath("//a[@data-gtm-link= '667069']");
     private final By addToGroza = By.xpath("//button[@id = 'add_to_cart_btn']");
@@ -23,8 +23,8 @@ public class resultPage {
     public void groza() {
         String getName = $(findName).getAttribute("value");
         String price = $(findPrice).getAttribute("value");
-        cart.setProductName(getName);
-        cart.setPrice(price);
+        shoppingCart.setProductName(getName);
+        shoppingCart.setPrice(price);
         $(addToGroza).click();
     }
 

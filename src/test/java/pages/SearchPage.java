@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-public class searchPage {
+public class SearchPage {
     private final By searchWhat = By.xpath("//input[@class='sn-suggest-input autocomplete main-search-input']");
     private final By mekletB = By.xpath("//button[@class = 'main-search-submit']");
     private final By filter = byText("MSI korpusi");

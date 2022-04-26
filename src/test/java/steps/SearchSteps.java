@@ -2,19 +2,19 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import pages.searchPage;
+import pages.SearchPage;
 
 
-public class searchSteps {
-    searchPage sp = new searchPage();
+public class SearchSteps {
+    SearchPage searchPage = new SearchPage();
 
     @Given("^Search (.*)$")
     public void searchProduct(String product) {
-        sp.searchProduct();
+        searchPage.searchProduct();
     }
 
     @And("^Choose subcategory$")
     public void chooseSubcategory() {
-        sp.filterCat();
+        searchPage.filterCat();
     }
 }
